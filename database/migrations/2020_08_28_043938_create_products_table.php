@@ -17,6 +17,11 @@ class CreateProductsTable extends Migration
              $table->increments('id')->unsigned();
              $table->string('productname');
              $table->string('price');
+           	 $table->integer('cat_id')->unsigned();
+	         $table->integer('tag_id')->unsigned();
+	
+          	 $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
+	      	 $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
 	
 			 $table->timestamps();
 		});
