@@ -15,11 +15,13 @@ class Products_OrdersTableSeeder extends Seeder
 		 $OrderIds = DB::table('orders')->pluck('id');
 		
 			$faker =Factory::create();
+			 foreach (range(1, 50) as $index) {
 			DB::table('products_orders')->insert([
 			 'quantity'=>$faker->randomNumber(2),
-			 'status'=>$faker->name,
+			 'status'=>$faker->word,
 			 'product_id'=> $faker->randomElement($ProductIds),
 			 'order_id'  => $faker->randomElement($OrderIds)            
 		]);
     }
+}
 }

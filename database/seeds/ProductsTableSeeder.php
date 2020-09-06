@@ -16,6 +16,7 @@ class ProductsTableSeeder extends Seeder
 
 
 		 $faker =Factory::create();
+		     foreach (range(1, 50) as $index) {
              DB::table('products')->insert([
             'productname'=>$faker->name,
 			'price'=>$faker->randomNumber(4),
@@ -24,7 +25,7 @@ class ProductsTableSeeder extends Seeder
             'tag_id' => $faker->randomElement($tagsId),           
 		]);
 		
-		
+			 }
         
     }
 }
