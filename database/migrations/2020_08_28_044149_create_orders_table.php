@@ -14,12 +14,14 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-             $table->increments('id')->unsigned();
+             $table->increments('id');
+			 $table->integer('quantity')->unsigned();
+			 $table->string('status');
              $table->date('date_expected');
 			 
              $table->integer('user_id')->unsigned();					 
 			 $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->timestamps();
+             $table->timestamps();
 	   });
     }
 
